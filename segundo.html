@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        function opcionJugador() {
+            return prompt("ROCK, PAPER OR SCISSORS?").toUpperCase()
+        }
+
+        let options = ['ROCK', 'PAPER', 'SCISSORS']
+        
+
+
+        function playerPlay(options, playerChoice) {
+            return options.indexOf(playerChoice)
+        }
+        function computerPlay(options) {
+            return Math.floor(Math.random() * (3 - 0)+ 0)
+        }
+
+        //opcion de la computadora
+        function showOptionComputer(options) {
+            return options[computerPlay(options)]
+        }
+        //opcion del jugador
+        function showOptionPlayer(options, playerChoice) {
+            return options[playerPlay(options, playerChoice)]
+        }
+
+        let computerChoice = showOptionComputer(options, computerPlay)
+        
+
+        function playRound(computerChoice){
+            let playerChoice = opcionJugador()
+            playerChoice = showOptionPlayer(options, playerChoice)
+            var resultado = ["Gana la computadora", "Empate!", "Ganaste!"]
+            if(computerChoice === 'ROCK' && playerChoice === 'SCISSORS'){
+                console.log(computerChoice)
+                console.log(playerChoice)
+                console.log(resultado[0])
+                return resultado[0]
+            }else if(computerChoice === 'ROCK' && playerChoice === 'ROCK'){
+                console.log(computerChoice)
+                console.log(playerChoice)
+                console.log(resultado[1])
+                return resultado[1]
+            }else if(computerChoice === 'ROCK' && playerChoice === 'PAPER'){
+                console.log(computerChoice)
+                console.log(playerChoice)
+                console.log(resultado[2])
+                return resultado[2]
+            }else if(computerChoice === 'PAPER' && playerChoice === 'SCISSORS'){
+                console.log(computerChoice)
+                console.log(playerChoice)
+                console.log(resultado[2])
+                return resultado[2]
+            }else if(computerChoice === 'PAPER' && playerChoice === 'ROCK'){
+                console.log(computerChoice)
+                console.log(playerChoice)
+                console.log(resultado[0])
+                return resultado[0]
+            }else if(computerChoice === 'PAPER' && playerChoice === 'PAPER') {
+                console.log(computerChoice)
+                console.log(playerChoice)
+                console.log(resultado[1])
+                return resultado[1]
+            }else if(computerChoice === 'SCISSORS' && playerChoice === 'ROCK'){
+                console.log(computerChoice)
+                console.log(playerChoice)
+                console.log(resultado[2])
+                return resultado[2]
+            }else if(computerChoice === 'SCISSORS' && playerChoice === 'PAPER'){
+                console.log(computerChoice)
+                console.log(playerChoice)
+                console.log(resultado[0])
+                return resultado[0]
+            }else if(computerChoice === 'SCISSORS' && playerChoice === 'SCISSORS'){
+                console.log(computerChoice)
+                console.log(playerChoice)
+                console.log(resultado[1])
+                return resultado[1]
+            }
+        }
+
+        function game(){   
+            setTimeout(function () {
+                let computer = 0,player = 0
+                for(let i=0;i<5;i++){
+                    respuesta = playRound(computerChoice)
+                    if(respuesta == "Gana la computadora"){
+                        computer++
+                    }else if(respuesta == "Ganaste!"){
+                        player++
+                    }
+                }
+                if(player > computer){
+                    console.log("Gana el jugador")
+                }else if(computer > player) {
+                    console.log("Gana la computadora!")
+                }
+            } , 2000)
+            
+        }
+        
+        game()
+        
+
+    </script>
+</body>
+</html>

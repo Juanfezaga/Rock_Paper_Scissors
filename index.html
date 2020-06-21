@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+    <h2>Opcion de computadora</h2>
+        <label for="" class="texto1"></label>
+    <h2>Opcion de Jugador</h2>
+        <label for="" class="texto2"></label>
+    <h4>Resultado</h4>
+        <label for="" class="resultado"></label>
+    <button class="boton-round">Nuevo Round?</button>
+    <script>
+
+
+
+        
+        function opcionJugador() {
+            return prompt("ROCK, PAPER OR SCISSORS?").toUpperCase()
+        }
+
+        let options = ['ROCK', 'PAPER', 'SCISSORS']
+        let playerChoice = opcionJugador()
+        let computerSelector = document.querySelector('.texto1')
+        let playerSelector = document.querySelector('.texto2')
+        let resultado = document.querySelector('.resultado')
+        let boton_round = document.querySelector('.boton-round')
+
+        function playerPlay(options, playerChoice) {
+            return options.indexOf(playerChoice)
+        }
+        function computerPlay(options) {
+            return Math.floor(Math.random() * (3 - 0)+ 0)
+        }
+
+        //opcion de la computadora
+        function showOptionComputer(options) {
+            return options[computerPlay(options)]
+        }
+        //opcion del jugador
+        function showOptionPlayer(options, playerChoice) {
+            return options[playerPlay(options, playerChoice)]
+        }
+
+        let computerChoice = showOptionComputer(options, computerPlay)
+        playerChoice = showOptionPlayer(options, playerChoice)
+
+        function showScreen (option, choice) {
+            return option.innerHTML = choice
+        }
+
+        function playRound(computerChoice, playerChoice){
+            if(computerChoice === 'ROCK' && playerChoice === 'SCISSORS'){
+                showScreen(computerSelector, computerChoice)
+                showScreen(playerSelector, playerChoice)
+                return showScreen(resultado, "Gana la computadora")
+            }else if(computerChoice === 'ROCK' && playerChoice === 'ROCK'){
+                showScreen(computerSelector, computerChoice)
+                showScreen(playerSelector, playerChoice)
+                return showScreen(resultado,"Empate!");
+            }else if(computerChoice === 'ROCK' && playerChoice === 'PAPER'){
+                showScreen(computerSelector, computerChoice)
+                showScreen(playerSelector, playerChoice)
+                return showScreen(resultado,"Ganaste!");
+            }else if(computerChoice === 'PAPER' && playerChoice === 'SCISSORS'){
+                showScreen(computerSelector, computerChoice)
+                showScreen(playerSelector, playerChoice)
+                return showScreen(resultado,"Ganaste!");
+            }else if(computerChoice === 'PAPER' && playerChoice === 'ROCK'){
+                showScreen(computerSelector, computerChoice)
+                showScreen(playerSelector, playerChoice)
+                return showScreen(resultado,"Gana la computadora");
+            }else if(computerChoice === 'PAPER' && playerChoice === 'PAPER') {
+                showScreen(computerSelector, computerChoice)
+                showScreen(playerSelector, playerChoice)
+                return showScreen(resultado,"Empate!");
+            }else if(computerChoice === 'SCISSORS' && playerChoice === 'ROCK'){
+                showScreen(computerSelector, computerChoice)
+                showScreen(playerSelector, playerChoice)
+                return showScreen(resultado,"Ganaste!");
+            }else if(computerChoice === 'SCISSORS' && playerChoice === 'PAPER'){
+                showScreen(computerSelector, computerChoice)
+                showScreen(playerSelector, playerChoice)
+                return showScreen(resultado,"Gana la computadora");
+            }else if(computerChoice === 'SCISSORS' && playerChoice === 'SCISSORS'){
+                showScreen(computerSelector, computerChoice)
+                showScreen(playerSelector, playerChoice)
+                return showScreen(resultado,"Empate!");
+            }
+        }
+
+        var computer=0,player=0
+        function game(){   
+            
+        }
+        
+        game()
+        
+
+    </script>
+</body>
+</html>
